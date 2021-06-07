@@ -4,5 +4,7 @@
   gather_facts: no
   tasks:
       
+      - command: cat $USER
+        register: op
       - debug:
-          msg: 'Hello from Ansible'
+          msg: '{{ op }}'
