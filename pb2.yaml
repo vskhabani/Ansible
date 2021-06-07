@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
       
-      - command: cat $USER
+      - command: echo $USER
         register: op
       - debug:
           msg: '{{ op }}'
