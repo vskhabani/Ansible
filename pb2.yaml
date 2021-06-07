@@ -1,8 +1,7 @@
 ---
 - name : Ansible playbook to install a package 
   hosts: vm
-  vars_files:
-    - ./vars.yaml
+  gather_facts: no
   tasks:
       
       - debug:
