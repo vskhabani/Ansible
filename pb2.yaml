@@ -1,6 +1,6 @@
 ---
 - name : Ansible playbook to install a package 
-  hosts: vm
+  hosts: all
   gather_facts: no
   tasks:
       
