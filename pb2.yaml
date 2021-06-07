@@ -1,6 +1,6 @@
 ---
 - name : Ansible playbook to install a package 
-  hosts: all
+  hosts: vm
   vars_files:
     - ./vars.yaml
   tasks:
