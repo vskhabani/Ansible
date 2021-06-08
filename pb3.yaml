@@ -22,7 +22,6 @@
         vm_shell_args: $USER
         wait_for_process: True
         timeout: 2000
-      delegate_to: localhost
       register: shell_command_with_wait_timeout
       
     - debug:
