@@ -4,6 +4,7 @@
 - name: Playbook to run a shell command on vm ware guest os 
   hosts: localhost
   gather_facts: no
+  become: yes
   vars_files:
     - vars.yaml
   tasks:
@@ -17,8 +18,8 @@
         vm_username: "{{ user }}"
         vm_password: "{{ pass }}"
         vm_id: "{{ vm_name }}"
-        vm_shell: /bin/cat
-        vm_shell_args: "/home/demo.txt"
+        vm_shell: /bin/ls
+        vm_shell_args: "/bin"
         wait_for_process: True
         timeout: 2000
       delegate_to: localhost
