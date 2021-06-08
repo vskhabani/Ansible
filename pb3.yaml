@@ -3,6 +3,7 @@
 ---
 - name: Playbook to run a shell command on vm ware guest os 
   hosts: localhost
+  gather_facts: no
   vars_files:
     - vars.yaml
   tasks:
