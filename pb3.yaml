@@ -1,0 +1,27 @@
+#Checking for the VMware shell module 
+
+---
+- name: Playbook to run a shell command on vm ware guest os 
+  hosts: localhost
+  vars_files:
+    - vars.yaml
+  tasks:
+
+    - community.vmware.vmware_vm_shell:
+        hostname: "{{ lookup('env', 'VMWARE_HOST') }}"
+        username: "{{ lookup('env', 'VMWARE_USER') }}"
+        password: "{{ lookup('env', 'VMWARE_PASSWORD') }}"
+        validate_certs: no
+        datacenter: "{{datacenter}}"
+        vm_username: "{{ user }}"
+        vm_password: "{{ pass }}"
+        vm_id: "{{ vm_name }}"
+        vm_shell: /bin/cat
+        vm_shell_args: "/home/demo.txt"
+        wait_for_process: True
+        timeout: 2000
+      delegate_to: localhost
+      register: shell_command_with_wait_timeout
+      
+    - debug:
+            msg : '{{ shell_command_with_wait_timeout}}'  
