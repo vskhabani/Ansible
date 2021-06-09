@@ -2,15 +2,15 @@
 ---
 -  name: This playbook ssh in to the vm and perform simple tasks
    hosts: localhost
-  #  vars_files:
-  #     - ./vars.yaml
+   vars_files:
+       - ./vars.yaml
    tasks:
       - name: SSH and read the file content
         expect:
           command: ssh '{{ user }}'@'{{ host }}'
           responses:
             (?i)password: '{{ pass }}'
-            (?i)root@localhost: cat /home/demo.txt && exit
+            (?i)root@: cat /home/demo.txt && exit
         register: output 
 
       - name: Printing the output 
