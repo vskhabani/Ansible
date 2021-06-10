@@ -1,0 +1,15 @@
+---
+- name : Ansible playbook to install a package 
+  hosts: vm 
+  tasks:
+      # - package:
+      #     name: httpd
+      #     state: present
+      - command : cat /tmp/Demo/Demo.txt
+        register: output
+      - debug:
+          msg: '{{ output.stdout }}'
+
+      
+
+
